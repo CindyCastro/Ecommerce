@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Brand;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BrandFactory extends Factory
+class SubCategoryFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Brand::class;
+    protected $model = SubCategory::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class BrandFactory extends Factory
     public function definition()
     {
         return [
-            'name'=> $this->faker->word()
+            'image' => $this->faker->imageUrl('public/storage/subcategories', 640, 480, null, false),
         ];
     }
 }
