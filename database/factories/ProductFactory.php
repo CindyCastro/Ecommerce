@@ -29,7 +29,7 @@ class ProductFactory extends Factory
 
         $category = $subcategory->category;
 
-        $brands = $category->brands->random();
+        $brand = $category->brands->random();
 
         if ($subcategory->color) {
            $quantity = null;
@@ -38,14 +38,14 @@ class ProductFactory extends Factory
         }
 
         return [
-            'name'=>$name,
-            'slug'=> Str::slug($name),
-            'description'=> $this->faker->text(),
-            'price'=>$this->faker->randomElement(19.99, 49.99, 99.99),
-            'subcategory_id'=> $subcategory->id,
-            'brand_id'=>$brands->id,
-            'quantity'=>$quantity,
-            'status'=>2
+            'name' =>$name,
+            'slug' => Str::slug($name),
+            'description' => $this->faker->text(),
+            'price' =>$this->faker->randomElement([19.99, 49.99, 99.99]),
+            'subcategory_id' => $subcategory->id,
+            'brand_id' =>$brand->id,
+            'quantity' =>$quantity,
+            'status' =>2
         ];
     }
 }
